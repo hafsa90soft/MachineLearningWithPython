@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magical Number Quest</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+        .game-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            backdrop-filter: blur(5px);
+            max-width: 400px;
+            width: 90%;
+        }
+        h1 {
+            color: #00ff88;
+            margin-bottom: 1.5rem;
+        }
+        .input-group {
+            margin: 1.5rem 0;
+        }
+        input[type="number"] {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #00ff88;
+            border-radius: 25px;
+            padding: 10px 20px;
+            color: #fff;
+            font-size: 1.1rem;
+            width: 150px;
+            text-align: center;
+            outline: none;
+        }
+        button {
+            background: #00ff88;
+            color: #1a1a2e;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        button:hover {
+            transform: scale(1.05);
+        }
+        .message {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .success {
+            color: #00ff88;
+        }
+        .hint {
+            color: #ff9100;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>🎮 Magical Number Quest</h1>
+        <p>A mystical number between 1 and 100 awaits your discovery...</p>
+        
+        <form method="POST">
+            <div class="input-group">
+                <input type="number" name="guess" min="1" max="100" placeholder="Your guess..." required>
+            </div>
+            <button type="submit">🔮 Make a Guess</button>
+        </form>
+
+        {% if message %}
+        <div class="message {% if 'Congratulations' in message %}success{% else %}hint{% endif %}">
+            {{ message }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html> 
